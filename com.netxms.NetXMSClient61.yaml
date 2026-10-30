@@ -23,7 +23,8 @@ modules:
     build-commands:
       - install -Dm755 netxms-client.sh /app/bin/netxms-client.sh
       - install -Dm644 nxmc.jar /app/bin/nxmc.jar
-      - install -T -Dm644 netxms.svg /app/share/icons/hicolor/scalable/apps/${FLATPAK_ID}.svg
+      - install -T -Dm644 netxms.svg
+        /app/share/icons/hicolor/scalable/apps/${FLATPAK_ID}.svg
       - install -t /app/share/applications/ -Dm644 ${FLATPAK_ID}.desktop
       - install -t /app/share/metainfo/ -Dm644 ${FLATPAK_ID}.metainfo.xml
     sources:
@@ -34,7 +35,7 @@ modules:
         x-checker-data:
           type: html
           url: https://netxms.com/downloads/
-          version-pattern: "NetXMS Version [0-9.]+"
+          version-pattern: "NetXMS Version (6\\.1\\.[0-9.]+)"
           url-template: >-
             https://netxms.com/download/releases/$major.$minor/nxmc-$version-standalone.jar
       - type: file
