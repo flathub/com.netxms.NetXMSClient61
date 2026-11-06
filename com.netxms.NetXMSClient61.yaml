@@ -32,10 +32,11 @@ modules:
         dest-filename: nxmc.jar
         x-checker-data:
           type: html
-          url: https://netxms.com/downloads/
-          version-pattern: "NetXMS Version (6\\.1\\.[0-9.]+)"
+          # The downloads page only advertises the current release series.
+          url: https://netxms.org/download/releases/6.1/
+          version-pattern: 'href="nxmc-(6\.1\.[0-9]+)-standalone\.jar"'
           url-template: >-
-            https://netxms.com/download/releases/$major.$minor/nxmc-$version-standalone.jar
+            https://netxms.org/download/releases/$major.$minor/nxmc-$version-standalone.jar
       - type: file
         path: netxms-client.sh
       - type: file
